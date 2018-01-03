@@ -40,15 +40,18 @@
   <arg name="param_filename" default="$(find snap_dfs)/config/dfs_test.yaml"/>
   <arg name="namespace_name" default="stereo"/>
   <arg name="camera_number" default="3"/>
-  
+  <arg name="skip_n_frames" default="5"/>
+  <arg name="width" default="320"/>
+  <arg name="height" default="240"/>
+ 
   <!-- ============== nodes =============== -->
   
   <include file="$(find snap_cam_ros)/launch/stereo.launch">
     <arg name="namespace_name" value="$(arg namespace_name)"/>
     <arg name="camera_number" value="$(arg camera_number)"/>
-    <arg name="width" value="640"/>
-    <arg name="height" value="480"/>
-    <arg name="skip_n_frames" value="0"/>
+    <arg name="width" value="$(arg width)"/>
+    <arg name="height" value="$(arg height)"/>
+    <arg name="skip_n_frames" value="$(arg skip_n_frames)"/>
   </include>
   
   <include file="$(find snap_dfs)/launch/dfs_node.launch">
